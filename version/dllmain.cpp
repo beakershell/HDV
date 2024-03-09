@@ -101,6 +101,7 @@ DWORD WINAPI Payload(LPVOID lpParam)
         , {_XOR_("All Stratagems in Loadout"), false}
         , {_XOR_("All Equipment in Armory"), false}
         , {_XOR_("All Armor in Armory"), false}
+        , {_XOR_("No Reload V2"), false}
     
     }; // Initialize all checkboxes to unchecked
     const int numCheckboxes = checkboxes.size();
@@ -630,6 +631,17 @@ DWORD WINAPI Payload(LPVOID lpParam)
                 }
             }
 
+            if (checkboxes[i].title == _XOR_("No Reload V2"))
+            {
+                if (!gData.NoReload_v2)
+                {
+                    uintptr_t NoReload_v2 = Memory::FindPattern(_XOR_("game.dll"), _XOR_("FF 4C 87 04 83 FE FF 74 52 49 8B 00 F6 40 14 01"));
+                    Memory::Nop((LPVOID)(NoReload_v2), 4);
+                    gData.NoReload_v2 = !gData.NoReload_v2;
+                    //printf(_XOR_("[Active] No Reload V2\n"));
+                }
+            }
+                
             /*if (checkboxes[i].title == "One / Two Hit Kill ( Bile Titan Bug, Aim Only Head )")
             {
                 if (!gData.OHK)
