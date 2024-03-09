@@ -87,7 +87,7 @@ DWORD WINAPI Payload(LPVOID lpParam)
         , {_XOR_("Inf Mission Time"), false}
         //, {"One / Two Hit Kill ( Bile Titan Bug, Aim Only Head )", false}
         , {_XOR_("No Reload"), false}
-        , {_XOR_("Max Samples"), false}
+        , {_XOR_("Max Resources"), false}
         , {_XOR_("Add 5 Samples"), false}
         , {_XOR_("No Recoil"), false}
         , {_XOR_("Inf Backpack"), false}
